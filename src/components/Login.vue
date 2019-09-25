@@ -25,11 +25,13 @@
           login () {
               this.$axios
                 .post('/login',{
-                  username: this.loginForm.username,
+                  name: this.loginForm.username,
                   password: this.loginForm.password
                 })
                 .then(successResponse =>{
-                  if (successResponse.data.code == 200){
+                  alert(successResponse.data.code);
+                  alert(successResponse.data.msg);
+                  if (successResponse.data.code == 0){
                     this.$router.replace({path:'/index'})
                   }
                 })
